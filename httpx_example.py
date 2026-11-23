@@ -1,5 +1,6 @@
 import httpx
 
+
 response = httpx.get("https://jsonplaceholder.typicode.com/todos/1")
 print(response.status_code)
 print(response.json())
@@ -24,10 +25,12 @@ response = httpx.get("https://httpbin.org/get", headers=headers)
 print(response.request.headers)
 print(response.json())
 
+
 params = {"userId":1}
 response = httpx.get("https://jsonplaceholder.typicode.com/todos", params=params)
 print(response.url)
 print(response.json())
+
 
 files = {"file": ("example.txt", open("example.txt", "rb"))}
 response = httpx.post("https://httpbin.org/post", files=files)
@@ -39,6 +42,7 @@ with httpx.Client() as client:
 print(response1.json())
 print(response2.json())
 
+
 client = httpx.Client(headers={"Authorization": "Bearer my_secret_token"})
 response = client.get("https://httpbin.org/get")
 print(response.json())
@@ -48,6 +52,7 @@ try:
    response.raise_for_status()
 except httpx.HTTPStatusError as e:
     print(f"Ошибка запроса {e}")
+
 
 try:
     response = httpx.get("https://httpbin.org/delay/5", timeout=2)
