@@ -30,4 +30,4 @@ delete_user_headers = {
 }
 delete_user_response = httpx.delete(f"http://localhost:8000/api/v1/users/{create_user_response_data['user']['id']}",
                                     headers=delete_user_headers)
-print('Delete user status code:', delete_user_response.status_code)
+print('Delete user status code:', delete_user_response.status_code)  
